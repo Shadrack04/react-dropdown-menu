@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+html {
+  font-family: "Epilogue", sans-serif;
+}
+
+.border {
+  border: 2px solid black;
+}

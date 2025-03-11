@@ -15,8 +15,10 @@ function Main() {
           Get your team in sync, no matter your location. Streamline processes,
           create team rituals, and watch productivity soar.
         </p>
-        <div>
-          <Button border="border">Learn more</Button>
+        <div className=" flex justify-center md:justify-start w-full">
+          <Button border="2px solid black" bg="black" textColor="white">
+            Learn more
+          </Button>
         </div>
         <Sponsors />
       </div>

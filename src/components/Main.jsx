@@ -26,7 +26,7 @@ function Main() {
         <picture>
           <source
             media="(max-width: 400px)"
-            srcset={heroImageMobile}
+            srcSet={heroImageMobile}
             sizes=""
           />
           <img className=" h-full w-full" src={heroImage} alt="Hero image" />

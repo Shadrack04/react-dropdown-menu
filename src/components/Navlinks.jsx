@@ -17,21 +17,20 @@ export default function NavLinks({ openNav, setOpenNav }) {
 
   function handleDropdown(e) {
     const { name } = e.currentTarget.dataset;
-    if (name === "feature") {
-      setOpenDrop((d) => {
-        return { ...d, feature: !d.feature };
-      });
-    }
 
-    if (name === "company") {
-      setOpenDrop((d) => {
-        return { ...d, company: !d.company };
-      });
+    setOpenDrop((d) => ({ ...d, [name]: !d[name] }));
+  }
+
+  function handleLoseFocus(e) {
+    if (e.target.dataset.name === "overlay") {
+      setOpenNav(false);
     }
   }
 
   return (
     <div
+      data-name="overlay"
+      onClick={handleLoseFocus}
       className={`${
         openNav ? "" : " translate-x-[200%]"
       } fixed inset-0 bg-black/70 md:bg-transparent transition-transform duration-300  md:translate-0 md:static md:flex md:items-center md:justify-between w-full`}

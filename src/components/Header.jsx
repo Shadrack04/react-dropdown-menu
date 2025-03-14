@@ -2,6 +2,7 @@ import { useState } from "react";
 import Logo from "./Logo";
 import NavLinks from "./Navlinks";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { MdClose } from "react-icons/md";
 
 export default function Header() {
   const [openNav, setOpenNav] = useState(false);
@@ -10,10 +11,17 @@ export default function Header() {
       <nav className=" w-full h-full flex items-center justify-between gap-10">
         <Logo />
         <NavLinks openNav={openNav} setOpenNav={setOpenNav} />
-        <HiOutlineMenuAlt2
-          onClick={() => setOpenNav(!openNav)}
-          className=" z-30 md:hidden size-8"
-        />
+        {openNav ? (
+          <MdClose
+            onClick={() => setOpenNav(!openNav)}
+            className=" z-30 md:hidden size-8"
+          />
+        ) : (
+          <HiOutlineMenuAlt2
+            onClick={() => setOpenNav(!openNav)}
+            className=" z-30 md:hidden size-8"
+          />
+        )}
       </nav>
     </header>
   );

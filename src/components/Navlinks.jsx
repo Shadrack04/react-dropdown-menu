@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { IoIosArrowDown } from "react-icons/io";
 // import { IoIosArrowUp } from "react-icons/io";
@@ -14,6 +14,23 @@ export default function NavLinks({ openNav, setOpenNav }) {
     feature: false,
     company: false,
   });
+
+  useEffect(() => {
+    const closeDropdown = (e) => {
+      const { name } = e.srcElement.offsetParent.dataset;
+      if (name !== "feature" && name !== "company") {
+        setOpenDrop({
+          feature: false,
+          company: false,
+        });
+      }
+    };
+
+    document.body.addEventListener("click", closeDropdown);
+    return () => {
+      document.body.removeEventListener("click", closeDropdown);
+    };
+  }, []);
 
   function handleDropdown(e) {
     const { name } = e.currentTarget.dataset;
